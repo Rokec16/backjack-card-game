@@ -11,9 +11,7 @@ def hit(player: Player, deck: Deck):
 
 def show_players_cards(player: Player, dealer: Player):
 
-    print('Players cards are:')
-    for card in player.hand.cards:
-        print(card)
+    print('Players cards are: ', *player.hand.cards, sep='\n')
 
     print('--------------------')
 
@@ -44,27 +42,28 @@ def show_all_cards(player: Player, dealer: Player):
 
 def main():
 
-    print('Welcome to the game of Console Blackjack!')
-
-    deck_of_cards = Deck()
-    deck_of_cards.shuffle_cards()
-
-    player = Player('Player1', 100)
-    dealer = Player('Dealer')
-
-    player.hand.add_card(deck_of_cards.deal_one_card())
-    dealer.hand.add_card(deck_of_cards.deal_one_card())
-
-    player.hand.add_card(deck_of_cards.deal_one_card())
-    dealer.hand.add_card(deck_of_cards.deal_one_card())
-
-    player_bet = player.take_bet()
-    print(f'Players bets {player_bet} chips.')
-    print()
-
-    show_players_cards(player, dealer)
+    print('Welcome to the game of Console Blackjack. Good luck!')
 
     while True:
+
+        deck_of_cards = Deck()
+        deck_of_cards.shuffle_cards()
+
+        player = Player('Player1', 100)
+        dealer = Player('Dealer')
+
+        player.hand.add_card(deck_of_cards.deal_one_card())
+        dealer.hand.add_card(deck_of_cards.deal_one_card())
+
+        player.hand.add_card(deck_of_cards.deal_one_card())
+        dealer.hand.add_card(deck_of_cards.deal_one_card())
+
+        player_bet = player.take_bet()
+        print(f'Players bets {player_bet} chips.')
+        print()
+
+        show_players_cards(player, dealer)
+
         while True:
 
             if player.hit_or_stand():
