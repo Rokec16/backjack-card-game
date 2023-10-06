@@ -1,12 +1,12 @@
-from cards import Card, Deck
-from players import Hand, Player
+from cards import Deck
+from players import Player
 
 
 def hit(player: Player, deck: Deck):
     """Add a card to players hand and adjust for aces."""
 
-    card_from_deck: Card = deck.deal_one_card()
-    player.hand.add_card(card_from_deck)
+    player.hand.add_card(deck.deal_one_card())
+    player.hand.adjust_for_ace()
 
 
 def show_players_cards(player: Player, dealer: Player):

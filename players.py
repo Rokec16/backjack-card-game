@@ -16,12 +16,28 @@ class Hand:
 
         self.cards: list = []
         self.value: int = 0
+        self.aces: int = 0
 
     def add_card(self, card: Card):
         """Adds a card to the hand and adjusts hands value."""
 
         self.cards.append(card)
         self.value += card.value
+
+        if card.rank.lower() == 'ace':
+            self.aces += 1
+
+    def adjust_for_ace(self):
+        """Adjusts the hands value for aces held in that hand.
+
+        Ace can have a value of either 1 or 11, depending on the total sum
+        of card values currently held in the hand. If total value of the hand
+        exceeds 21, then ace can be adjusted to be worth 1 instead of 11.
+        """
+
+        while self.value > 21 and self.aces > 0:
+            self.value -= 10
+            self.aces -= 1
 
 
 class Player:
