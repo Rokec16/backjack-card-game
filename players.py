@@ -59,6 +59,9 @@ class Player:
         self.chips: int = chips
         self.hand: Hand = Hand()
 
+    def __str__(self):
+        return self.name
+
     def take_bet(self):
         """Takes a value of the bet from the player."""
 

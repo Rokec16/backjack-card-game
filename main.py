@@ -69,7 +69,7 @@ def main():
             if player.hit_or_stand():
                 hit(player, deck_of_cards)
             else:
-                print(f'Player {player} decided to stand.')
+                print(f'Player {str(player)} decided to stand.')
 
             if player.hand.value > 21:
                 break
@@ -85,14 +85,16 @@ def main():
 
         if dealer.hand.value > 21:
             print('Dealer busts!')
-            player.chips += player_bet
+            player.chips += player_bet * 2
         elif player.hand.value > 21:
             print('Player busts!')
         elif player.hand.value > dealer.hand.value:
             print('Player wins!')
-            player.chips += player_bet
+            player.chips += player_bet * 2
         else:
             print('Dealer wins!')
+
+        print(f'\nPlayer holds {player.chips} chips.')
 
         if player.replay():
             print('Good luck!')
