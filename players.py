@@ -51,18 +51,21 @@ class Player:
             Name of the player.
         chips : int
             Amount of chips the player holds.
+        bet : int
+            Amount of chips the players placed as as bet.
         hand : Hand
             Cards the player holds.
         """
 
         self.name: str = name
         self.chips: int = chips
+        self.bet: int = 0
         self.hand: Hand = Hand()
 
     def __str__(self):
         return self.name
 
-    def take_bet(self):
+    def take_bet(self) -> None:
         """Takes a value of the bet from the player."""
 
         input_validated = False
@@ -76,7 +79,7 @@ class Player:
                 else:
                     input_validated = True
                     self.chips -= bet
-                    return bet
+                    self.bet = bet
             else:
                 print("Please enter a number.")
 
