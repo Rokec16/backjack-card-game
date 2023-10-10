@@ -84,14 +84,14 @@ class Player:
 
         while not input_validated:
             user_input = input("Hit or stand? ")
-            if user_input == "hit":
+            if user_input == "h":
                 input_validated = True
                 return True
-            elif user_input == "stand":
+            elif user_input == "s":
                 input_validated = True
                 return False
             else:
-                print("Please enter 'hit' or 'stand'.")
+                print("Please enter 'h' for hit or 's' for stand.")
 
     def replay(self) -> bool:
         """Asks the player if they want to play the game again."""
@@ -100,11 +100,11 @@ class Player:
 
         while not input_validated:
             user_input = input("Do you want to play another round? ")
-            if user_input == "yes":
+            if user_input == "y":
                 input_validated = True
                 return True
-            elif user_input == "no":
+            elif user_input == "n":
                 input_validated = True
                 return False
             else:
-                print("Please enter 'yes' or 'no'.")
+                print("Please enter 'y' for yes or 'n' for no.")
