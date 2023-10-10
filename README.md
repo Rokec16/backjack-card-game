@@ -1,2 +1,1 @@
-# backjack-card-game
-Card game Blackjack written in Python.
+# Backjack card game played in the console window.
